@@ -1,0 +1,14 @@
+<h1 style="text-align: center;margin-top: 5%;color: blue; font-weight: 600;">Signup Form</h1>
+<div class="container">
+  <form class="example-form" [formGroup]="signUpform" (ngSubmit)="getSignupData()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email address..." type="emil" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Enter the password..." type="password" formControlName="password" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

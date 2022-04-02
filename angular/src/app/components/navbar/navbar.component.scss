@@ -1,0 +1,15 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+li{
+  list-style: none;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+ul{
+  display: flex;
+}
+a{
+  text-decoration: none;
+  color: white;
+  margin-left: 20%;
+}
