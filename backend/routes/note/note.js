@@ -51,7 +51,7 @@ router.put('/editnote/:id',[
         if(note.user.toString() !== req.user.id){
             return res.status(400).json({error:"Not Allowed"});
         }
-        note=await Note.findByIdAndUpdate(req.params.id,{$set:newNote},{new:true});
+        note=await Note.findByIdAndUpdate(req.params.id,{$set:newNote});
         res.json({result:"successfully updated"});
     } catch (error) {
         return res.status(500).json({error:'internal server error'});

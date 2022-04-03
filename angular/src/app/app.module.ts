@@ -9,11 +9,17 @@ import { AuthModule } from './auth/auth.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NoteComponent } from './components/note/note.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddnoteComponent } from './components/addnote/addnote.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './components/edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NoteComponent
+    NoteComponent,
+    AddnoteComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialUiModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

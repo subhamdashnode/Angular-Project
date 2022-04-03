@@ -1,0 +1,15 @@
+<h1>AddNote A NewNote</h1>
+<div class="container">
+  <form class="example-form" [formGroup]="addFormData" (ngSubmit)="getFormData()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="title" formControlName="title" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="desctiption" formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
+</div>
