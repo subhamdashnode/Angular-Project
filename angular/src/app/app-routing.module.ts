@@ -6,7 +6,8 @@ import { EditComponent } from './components/edit/edit.component';
 import { NoteComponent } from './components/note/note.component';
 
 const routes: Routes = [
-  {path:'note',component:NoteComponent,canActivate:[AuthGuard],children:[
+  {path:'note',canActivate:[AuthGuard],children:[
+    {path:'',component:NoteComponent},
     {path:'addnote',component:AddnoteComponent},
     {path:'edit',component:EditComponent}
   ]},

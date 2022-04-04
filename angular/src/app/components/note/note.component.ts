@@ -13,6 +13,7 @@ export class NoteComponent implements OnInit {
   notes:any;
   check:boolean=true;
   oneDetail:any;
+  editformdata:any;
   constructor(private _appervice:AppService,private _router:Router) { }
 
   ngOnInit(): void {
@@ -39,10 +40,8 @@ export class NoteComponent implements OnInit {
     },err=>console.log(err));
   }
   // EDIT THE NOTE
-  edit(id:any){
-    this.oneDetail=this.notes.filter((item:any)=>item._id==id);
-    this._appervice.subject.next(this.oneDetail[0])
-    this.check=true;
-    this._router.navigate(['note/addnote']);
+  edit(elem:any){
+    this._appervice.subject.next(elem);
+    this._router.navigate(['/note/addnote'])
   }
 }

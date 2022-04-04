@@ -36,26 +36,31 @@ export class AddnoteComponent implements OnInit {
         });
       } else {
         this.addFormData = this.fb.group({
-          title: [''],
-          description: [''],
+          title: [res.title],
+          description: [res.description],
         });
-        this.id = res._id;
-        this.addFormData.get('title')?.setValue(res.title);
-        this.addFormData.get('description')?.setValue(res.description);
       }
     });
   }
   // GET THE FROM DATA IN FOR NOTES
   getFormData() {
-    this._appservice.addData(this.addFormData.value).subscribe(
-      (res: any) => {
-        this._router.navigate(['/note']).then(() => {
-          window.location.reload();
-        });
-        this.data.emit(true);
-      },
-      (err) => console.log(err)
-    );
+    this._appservice.subject.subscribe((res:any)=>{
+      if(!res._id){
+        this._appservice.addData(this.addFormData.value).subscribe(
+          (res: any) => {
+            this._router.navigate(['/note']).then(() => {
+              window.location.reload();
+            });
+            this.data.emit(true);
+          },
+          (err) => console.log(err)
+        );
+      }else{
+        this._appservice.editNote(this.addFormData.value,res._id).subscribe((result:any)=>{
+          console.log(result)
+        })
+      }
+    })
     this.addFormData.reset();
   }
 }
