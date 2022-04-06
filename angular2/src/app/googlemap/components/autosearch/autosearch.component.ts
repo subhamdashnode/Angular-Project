@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-autosearch',
@@ -10,14 +11,6 @@ export class AutosearchComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  formattedaddress = ' ';
-  options :any= {
-    componentRestrictions: {
-      country: ['AS'],
-    },
-  };
-  public AddressChange(address: any) {
-    //setting address from API to local variable
-    this.formattedaddress = address.formatted_address;
-  }
+  myControl = new FormControl();
+  options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
 }

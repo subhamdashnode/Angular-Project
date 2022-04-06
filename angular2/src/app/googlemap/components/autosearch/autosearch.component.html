@@ -1,3 +1,14 @@
-<input ngx-google-places-autocomplete [options]='options' placeholder="search here" (onAddressChange)="AddressChange($event)"/>
-
-<app-map></app-map>
+<div class="container-fluid">
+  <div class="">
+    <h1>Auto Search ----Search Here</h1>
+    <mat-form-field>
+      <input type="text" placeholder="Enter Location" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+<app-notification></app-notification>
